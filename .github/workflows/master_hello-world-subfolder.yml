@@ -31,6 +31,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: hello-world-subfolder
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_019B7DFC56CA4BEBAB2291986E1A79C6 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5e2bfdc285fc4fd8858271e9d73918f4 }}
         package: ./dist/subfolder
         

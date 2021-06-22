@@ -25,13 +25,13 @@ jobs:
       run: |
         npm install
         npm run build --if-present
-        npm run test --if-present
+      working-directory: ./src
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
       with:
         name: node-app
-        path: .
+        path: ./src
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,6 +51,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'helloworld-dme2'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_74bb54a38d0b477bb4aa17151d083fb8 }}
-        package: .
+        package: ./dist/subfolder/src
